@@ -13,7 +13,13 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
-
+function callBinding(magicAnimals, updateAnimal, id){
+    for(let i=0;i<magicAnimals.length;i++){
+        if(magicAnimals[i].id === id){
+            return updateAnimal('Trogdor')
+        }
+    }
+}
 
 
 // *************
@@ -29,7 +35,14 @@
 
 // CODE HERE...
 
-
+function applyBinding(magicAnimals, updateAnimal, id){
+    for(let i=0;i<magicAnimals.length;i++){
+        if(magicAnimals[i].id === id){
+            // updateAnimal.apply([magicAnimals[i]])
+            return updateAnimal.apply(magicAnimals[i], ['being majestic', 'eating rainbows'])
+        }
+    }
+}
 
 // *************
 // * PROBLEM 3 *
@@ -49,7 +62,9 @@ var foo;
 
 // CODE HERE...
 
-
+function promiseMe(){
+    
+}
 
 // *************
 // * PROBLEM 4 *

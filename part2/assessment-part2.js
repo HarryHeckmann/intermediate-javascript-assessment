@@ -44,6 +44,14 @@ function noWeakLink() {
     url: '/api/users'
   })
   // CODE HERE...
+  .then(response => {
+    firstUser = response.data[0]
+    return response
+  })
+  .then(response => {
+    thirdUser = response.data[2]
+    return response.data[9]
+  })
 
 }
 
@@ -75,7 +83,7 @@ function large() {
 }
 // CODE HERE...
 
-
+var boundToElephant = this.large.bind(elephant)
 
 // *************
 // * PROBLEM 3 *
@@ -88,7 +96,9 @@ function large() {
 // and return the bound function.
 
 // CODE HERE...
-
+function deathStar(capacity, crew){
+  return capacity.bind(crew)
+}
 
 
 // *************
@@ -103,7 +113,11 @@ function large() {
 // The closure function will return the combined value of assets and liabilities.
 
 // CODE HERE...
-
+function accountingOffice(assets){
+  return function(liabilities){
+    return assets + liabilities
+  }
+}
 
 
 // *************
@@ -129,6 +143,18 @@ function large() {
 
 // CODE HERE...
 
+
+function forgetter(name){
+  let arr = []
+  return function rememberall(item){
+    console.log(item)
+    arr.push(item)
+    return {
+      name: name,
+      remember: arr
+    }
+  }
+}
 
 
 // *************
@@ -156,3 +182,43 @@ function large() {
 // NOTE: Neither hunger nor danger should be able to exceed 100 or drop below 0.
 
 // CODE HERE...
+
+function frodo(startingHungerValue, startingDangerValue){
+    let danger = startingDangerValue
+    let hunger = startingHungerValue
+  return {
+    dinnerOverFire(){
+      // let danger = startingDangerValue
+      // let hunger = startingHungerValue
+      // if(hunger >= 25){
+      //   hunger - 25
+      // }
+      // if(danger <= 60){
+      //   danger + 40
+      // }
+      console.log(hunger, danger)
+      return {
+        hunger: hunger >= 25 ? hunger-25 : 0,
+        danger: danger <= 60 ? danger+40 : 100
+      }
+    },
+    hidingInBush(){
+      // let danger = startingDangerValue
+      // let hunger = startingHungerValue
+      // if(hunger <= 65){
+      //   hunger + 35
+      // }
+      // if(danger >= 20){
+      //   danger - 20
+      // }
+      console.log(hunger, danger)
+      return {
+        hunger: hunger <= 65 ? hunger + 35 : 100,
+        danger: danger >= 20 ? danger - 20 : 0
+      }
+    }
+  }
+}
+
+
+// frodo(50, 50)
