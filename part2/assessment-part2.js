@@ -184,37 +184,31 @@ function forgetter(name){
 // CODE HERE...
 
 function frodo(startingHungerValue, startingDangerValue){
-    let danger = startingDangerValue
-    let hunger = startingHungerValue
+    this.danger = startingDangerValue
+    this.hunger = startingHungerValue
   return {
-    dinnerOverFire(){
-      // let danger = startingDangerValue
-      // let hunger = startingHungerValue
-      // if(hunger >= 25){
-      //   hunger - 25
-      // }
-      // if(danger <= 60){
-      //   danger + 40
-      // }
-      console.log(hunger, danger)
+    dinnerOverFire: function(){
+      if(this.hunger >= 25){
+        this.hunger -= 25
+      }
+      if(this.danger <= 60){
+        this.danger += 40
+      }
       return {
-        hunger: hunger >= 25 ? hunger-25 : 0,
-        danger: danger <= 60 ? danger+40 : 100
+        hunger: this.hunger,
+        danger: this.danger
       }
     },
-    hidingInBush(){
-      // let danger = startingDangerValue
-      // let hunger = startingHungerValue
-      // if(hunger <= 65){
-      //   hunger + 35
-      // }
-      // if(danger >= 20){
-      //   danger - 20
-      // }
-      console.log(hunger, danger)
+    hidingInBush: function(){
+      if(this.hunger <= 65){
+        this.hunger += 35
+      }
+      if(this.danger >= 20){
+        this.danger -= 20
+      }
       return {
-        hunger: hunger <= 65 ? hunger + 35 : 100,
-        danger: danger >= 20 ? danger - 20 : 0
+        hunger: this.hunger,
+        danger: this.danger
       }
     }
   }
